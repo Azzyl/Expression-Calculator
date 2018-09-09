@@ -16,7 +16,8 @@ class Parser {
                     if ((input[i] == '>' || input[i] == '<' || input[i] == '=') && brackets == 0)
                         return i
                 }
-                return -1
+                if (brackets > 0)
+                    return -2
             }
             TERM_FLAG -> {
                 var brackets = 0
@@ -26,7 +27,8 @@ class Parser {
                     if (((input[i] == '+' || input[i] == '-') && i != 0) && brackets == 0)
                         return i
                 }
-                return -1
+                if (brackets > 0)
+                    return -2
             }
             FACTOR_FLAG -> {
                 var brackets = 0
@@ -36,10 +38,11 @@ class Parser {
                     if ((input[i] == '*') && brackets == 0)
                         return i
                 }
-                return -1
+                if (brackets > 0)
+                    return -2
             }
-            else -> return -1
         }
+        return -1
     }
 
     fun parse(input: String): Expression {
@@ -49,6 +52,8 @@ class Parser {
 
     fun parseRelation(input: String): Expression {
         var i = findOp(RELATION_FLAG, input)
+        if (i == -2)
+            throw Exception("Invalid brackets")
         if (i == -1)
             return parseTerm(input)
         else
@@ -63,6 +68,8 @@ class Parser {
 
     fun parseTerm(input: String): Expression {
         var i = findOp(TERM_FLAG, input)
+        if (i == -2)
+            throw Exception("Invalid brackets")
         if (i == -1)
             return parseFactor(input)
         else
@@ -74,6 +81,8 @@ class Parser {
 
     fun parseFactor(input: String): Expression {
         var i = findOp(FACTOR_FLAG, input)
+        if (i == -2)
+            throw Exception("Invalid brackets")
         if (i == -1)
             return parsePrimary(input)
         else
@@ -88,7 +97,7 @@ class Parser {
     }
 
     fun parseInteger(input: String): Expression {
-        return Expression(input.toLong())
+        return Expression(input.toBigInteger())
     }
 
 }

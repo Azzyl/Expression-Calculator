@@ -1,9 +1,11 @@
 package tokens
 
-open class Expression {
-    open var value: Long
+import java.math.BigInteger
 
-    constructor(value: Long = 0) {
+open class Expression {
+    open var value: BigInteger
+
+    constructor(value: BigInteger = BigInteger.valueOf(0)) {
         this.value = value
     }
 }
