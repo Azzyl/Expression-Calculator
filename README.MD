@@ -1,9 +1,9 @@
-###Expression Calculator
+### Expression Calculator
 This project calculates the value of expression <br>
 Accpeted operators: <, >, =, +, -, * <br>
 Language: Kotlin <br>
 Build tool: Gradle
-#####Run the project
+##### Run the project
 Open command line in the root of the project <br>
 Type in the command line <br>
 `gradle clean build` <br>
