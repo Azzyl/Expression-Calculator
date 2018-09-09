@@ -8,6 +8,6 @@ Open command line in the root of the project <br>
 Type in the command line <br>
 `gradle clean build` <br>
 Put `in.txt` file with test samples into the `build/libs` folder,
-go the the `build/libs` folder and run the project by executin jar file `java -jar calculator-fat-1.0-SNAPSHOT.jar`
+go the the `build/libs` folder and run the project by executing jar file `java -jar calculator-fat-1.0-SNAPSHOT.jar`
 <br>
 The output is in the `out.txt` file in the same folder
