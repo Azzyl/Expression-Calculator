@@ -13,3 +13,4 @@ go the the `build/libs` folder and run the project by executing jar file `java -
 The output is in the `out.txt` file in the same folder
 #### Test the project
 Type in the root of project `gradle test`
+gy
